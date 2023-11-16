@@ -8,12 +8,14 @@ module.exports = {
   theme: {
     container: {
       center: true,
+      padding: '2rem'
     },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
       'primary': '#302CA2',
       'primary-100': 'rgba(48, 44, 162, 0.08)',
+      'primary-300': 'rgba(48, 44, 162, 0.3)',
       'primary-accent': '#23104E',
       'secondary': '#26A37C',
       'txt-black': '#032326',
