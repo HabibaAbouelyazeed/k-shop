@@ -1,5 +1,5 @@
-<div class="card-wrapper w-60 sm:w-72 relative p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50 flex flex-col">
-	<figure>
+<div class="card-wrapper relative p-4 rounded-md shadow-md flex flex-col bg-foreGround">
+	<figure class="w-full">
 		<img [src]="'../../../assets/images/'+ productItem.thumbnail" alt=""
 			class="object-contain object-center w-full rounded-md h-72 dark:bg-gray-500">
 	</figure>
@@ -37,6 +37,10 @@
 		</div>
 	</div>
 	
+	<div class="absolute top-0 start-0 py-1 px-2 m-3">
+		<img src="../../../assets/icons/compare_arrows_black_24dp.svg" alt="">
+	</div>
+
 	<div *ngIf="!!productItem.state" class="absolute rounded-full top-0 end-0 py-1 px-4 m-3 text-foreGround"
 		[ngClass]="{'bg-primary': productItem.state == 'جديد', 
 		'bg-secondary': productItem.state == 'عرض'}">

@@ -1,8 +1,10 @@
 <section>
 <h4 class="mb-10">منتجات تصفحتها مؤخرا</h4>
 <div class="flex flex-col gap-3.5">
-<app-product-card-side></app-product-card-side>
-<app-product-card-side></app-product-card-side>
-<app-product-card-side></app-product-card-side>
+    <div class="flex flex-col items-center gap-4">
+        <div *ngFor="let product of products">
+            <app-product-card-side [productItem]="product"></app-product-card-side>
+        </div>
+    </div>
 </div>
 </section>

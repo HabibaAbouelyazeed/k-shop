@@ -7,7 +7,7 @@
         </button>
     </div>
     <div class="flex flex-col items-center md:flex-row md:flex-wrap gap-6">
-        <div *ngFor="let product of products">
+        <div *ngFor="let product of products" class="w-72">
             <app-product-card-main [productItem]="product"></app-product-card-main>
         </div>
     </div>

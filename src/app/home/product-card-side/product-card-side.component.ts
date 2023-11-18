@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/shared/interface/product';
 
 @Component({
   selector: 'app-product-card-side',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-card-side.component.css']
 })
 export class ProductCardSideComponent {
-
+  @Input() productItem !: Product;
 }
