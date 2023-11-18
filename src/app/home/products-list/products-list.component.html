@@ -1,9 +1,14 @@
 <section>
-    <h1 class="text-txt-black mb-7">وصل حديثا</h1>
-    <div class="flex flex-col md:flex-row gap-6">
-        <app-product-card-main></app-product-card-main>
-        <app-product-card-main></app-product-card-main>
-        <app-product-card-main></app-product-card-main>
-        <app-product-card-main></app-product-card-main>
+    <div class="flex flex-col sm:flex-row gap-4 items-center mb-7">
+        <h1 class="text-txt-black ">وصل حديثا</h1>
+        <span class="h-0.5 bg-starOff flex-grow"></span>
+        <button class="px-4 py-2 rounded text-primary hover:text-foreGround hover:bg-primary border-2 border-primary">
+            عرض الكل
+        </button>
+    </div>
+    <div class="flex flex-col items-center md:flex-row md:flex-wrap gap-6">
+        <div *ngFor="let product of products">
+            <app-product-card-main [productItem]="product"></app-product-card-main>
+        </div>
     </div>
 </section>
