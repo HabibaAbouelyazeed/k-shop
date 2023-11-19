@@ -12,6 +12,7 @@ import { ProductsListComponent } from './home/products-list/products-list.compon
 import { ProductCardMainComponent } from './home/product-card-main/product-card-main.component';
 import { LatestProductsListComponent } from './home/latest-products-list/latest-products-list.component';
 import { ProductCardSideComponent } from './home/product-card-side/product-card-side.component';
+import { WishlistComponent } from './wishlist-page/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductCardSideComponent } from './home/product-card-side/product-card-
     ProductsListComponent,
     ProductCardMainComponent,
     LatestProductsListComponent,
-    ProductCardSideComponent
+    ProductCardSideComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
