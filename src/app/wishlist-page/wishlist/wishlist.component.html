@@ -1,1 +1,20 @@
-<p>wishlist works!</p>
+<section class="container py-8">
+    <div class="flex flex-col sm:flex-row gap-4 items-center mb-7">
+        <h2 class="text-primary-accent font-bold">قائمة الامنيات</h2>
+    </div>
+    <hr class="text-primary-accent"/>
+    <div *ngIf="wishlist.length === 0" class="flex flex-col items-center">
+        <figure class="flex justify-center mt-20">
+            <img src="../../../assets/images/empty-wishlist.png" alt="">
+        </figure>
+        <figcaption class="text-xl my-4">قائمة الامنيات فارغة.</figcaption>
+        <button>
+            <a routerLink="/" class="bg-primary-300 hover:bg-primary text-primary-accent hover:text-foreGround py-1 px-2 rounded text-lg">تصفح الآن</a>
+        </button>
+    </div>
+    <div class="flex flex-col items-center md:flex-row md:flex-wrap gap-6 py-8">
+        <div *ngFor="let product of wishlist" class="w-72">
+            <app-product-card-main [productItem]="product"></app-product-card-main>
+        </div>
+    </div>
+</section>

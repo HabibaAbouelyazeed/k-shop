@@ -7,4 +7,5 @@ export interface Product {
   thumbnail: string,
   state?: string,
   quantity?: number,
+  isProductWishlisted?: boolean,
 }

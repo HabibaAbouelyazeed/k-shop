@@ -27,8 +27,8 @@
                 <img src="../../../assets/icons/add_shopping_cart-black-18dp-1.svg">
             </button>
             <div class="flex gap-2">
-                <button>
-                    <img src="../../../assets/icons/favorite_border-dark-24px.svg" alt="favorite">
+                <button (click)="toggleWishlist()">
+                    <img [src]="productItem.isProductWishlisted? wishlistIcon[1] : wishlistIcon[0]" alt="favorite">
                 </button>
                 <button>
                     <img src="../../../assets/icons/share-24px.svg" alt="share">
