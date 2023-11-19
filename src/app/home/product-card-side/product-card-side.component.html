@@ -1,6 +1,6 @@
 <div class="py-2 pe-2 min-w-[20.5rem] rounded-md shadow-md flex bg-foreGround">
     <figure class="relative w-36">
-        <img [src]="'../../../assets/images/'+ productItem.thumbnail" alt=""
+        <img [src]="'assets/images/'+ productItem.thumbnail" alt=""
             class="object-contain object-center w-full rounded-md px-2">
         <div *ngIf="!!productItem.state" class="absolute rounded-full top-0 end-0 py-1 px-3 m-3 text-foreGround"
             [ngClass]="{'bg-primary': productItem.state == 'جديد', 
@@ -8,7 +8,7 @@
             {{productItem.state}}
         </div>
         <div class="absolute top-0 start-0 py-1 m-3">
-            <img src="../../../assets/icons/compare_arrows_black_24dp.svg" alt="">
+            <img src="assets/icons/compare_arrows_black_24dp.svg" alt="">
         </div>
     </figure>
     <div class="card-body">
@@ -23,15 +23,15 @@
         <h5 class="mt-4 text-primary-accent font-bold mt-auto">{{productItem.price}} ج.م</h5>
 
         <div class="flex items-baseline justify-between">
-            <button class="mt-4">
-                <img src="../../../assets/icons/add_shopping_cart-black-18dp-1.svg">
+            <button (click)="AddToCart()" [attr.disabled]="productItem.isProductInCart? '': null" class="mt-4">
+                <img src="assets/icons/add_shopping_cart-black-18dp-1.svg">
             </button>
             <div class="flex gap-2">
                 <button (click)="toggleWishlist()">
                     <img [src]="productItem.isProductWishlisted? wishlistIcon[1] : wishlistIcon[0]" alt="favorite">
                 </button>
                 <button>
-                    <img src="../../../assets/icons/share-24px.svg" alt="share">
+                    <img src="assets/icons/share-24px.svg" alt="share">
                 </button>
             </div>
         </div>

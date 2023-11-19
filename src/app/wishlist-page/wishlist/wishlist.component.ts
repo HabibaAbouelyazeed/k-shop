@@ -9,7 +9,7 @@ import { WishlistService } from 'src/app/shared/services/wishlist.service';
 })
 export class WishlistComponent {
   wishlist : Array<Product> = [];
-
+  
   constructor(private wishlistService: WishlistService){}
 
   ngOnInit(){

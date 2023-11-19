@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/shared/interface/product';
+import { CartService } from 'src/app/shared/services/cart.service';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { WishlistService } from 'src/app/shared/services/wishlist.service';
 export class ProductCardSideComponent {
   @Input() productItem !: Product;
   wishlist: Array<Product> = [];
+  cart: Array<Product> = [];
   wishlistIcon: Array<string> = [
     '../../../assets/icons/favorite_border-dark-24px.svg',
     '../../../assets/icons/red-favorite-24.png',
   ];
 
-  constructor(private wishlistService: WishlistService){}
+  constructor(private wishlistService: WishlistService, private cartService: CartService){}
 
   ngOnInit() {
     this.wishlistService.getWishlist().subscribe(
@@ -23,17 +25,17 @@ export class ProductCardSideComponent {
       (error) => console.log(error)
     );
 
-    this.productItem.isProductWishlisted =
-      this.wishlist.filter((item) => {
-        return item.id === this.productItem.id;
-      }).length > 0;
+    this.cartService.getCart().subscribe(
+      (data) => (this.cart = data),
+      (error) => console.log(error)
+    );
+
+    this.productInWishlist();
+    this.productInCart();
   }
 
   toggleWishlist() {
-    this.productItem.isProductWishlisted =
-      this.wishlist.filter((item) => {
-        return item.id === this.productItem.id;
-      }).length > 0;
+    this.productInWishlist();
 
     if (this.productItem.isProductWishlisted) {
       this.wishlist = this.wishlist.filter((item) => {
@@ -46,5 +48,27 @@ export class ProductCardSideComponent {
       this.productItem.isProductWishlisted = true;
     }
     this.wishlistService.setWishlist(this.wishlist);
+  }
+
+  AddToCart() {
+    this.productInCart()
+    if (!this.productItem.isProductInCart) {
+      this.productItem.isProductInCart = true;
+      this.cart.push(this.productItem);
+      this.cartService.setCart(this.cart);
+    }
+  }
+
+  productInWishlist(){
+    this.productItem.isProductWishlisted =
+      this.wishlist.filter((item) => {
+        return item.id === this.productItem.id;
+      }).length > 0;
+  }
+  productInCart(){
+    this.productItem.isProductInCart =
+    this.cart.filter((item) => {
+      return item.id === this.productItem.id;
+    }).length > 0
   }
 }

@@ -13,6 +13,7 @@ import { ProductCardMainComponent } from './home/product-card-main/product-card-
 import { LatestProductsListComponent } from './home/latest-products-list/latest-products-list.component';
 import { ProductCardSideComponent } from './home/product-card-side/product-card-side.component';
 import { WishlistComponent } from './wishlist-page/wishlist/wishlist.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WishlistComponent } from './wishlist-page/wishlist/wishlist.component';
     ProductCardMainComponent,
     LatestProductsListComponent,
     ProductCardSideComponent,
-    WishlistComponent
+    WishlistComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

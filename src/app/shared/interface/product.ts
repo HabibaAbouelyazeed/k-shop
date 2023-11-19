@@ -6,6 +6,6 @@ export interface Product {
   rating: number,
   thumbnail: string,
   state?: string,
-  quantity?: number,
+  isProductInCart?: boolean,
   isProductWishlisted?: boolean,
 }
