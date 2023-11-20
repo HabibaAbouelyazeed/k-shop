@@ -22,8 +22,12 @@ export class ProductCardMainComponent {
     'assets/icons/red-favorite-24.png',
   ];
 
-  constructor(private wishlistService: WishlistService, private cartService: CartService) {}
+  constructor(
+    private wishlistService: WishlistService,
+    private cartService: CartService
+  ) {}
 
+  // Subscribe to cart and wishlist services
   ngOnInit() {
     this.wishlistService.getWishlist().subscribe(
       (data) => (this.wishlist = data),
@@ -39,24 +43,24 @@ export class ProductCardMainComponent {
     this.productInCart();
   }
 
+  // Handle adding or removing item from wishlist
   toggleWishlist() {
-    this.productInWishlist()
+    this.productInWishlist();
 
     if (this.productItem.isProductWishlisted) {
       this.wishlist = this.wishlist.filter((item) => {
         return item.id !== this.productItem.id;
       });
       this.productItem.isProductWishlisted = false;
-
     } else {
       this.wishlist.push(this.productItem);
       this.productItem.isProductWishlisted = true;
     }
     this.wishlistService.setWishlist(this.wishlist);
   }
-
+  // Handle adding item to cart
   AddToCart() {
-    this.productInCart()
+    this.productInCart();
     if (!this.productItem.isProductInCart) {
       this.productItem.isProductInCart = true;
       this.cart.push(this.productItem);
@@ -64,18 +68,19 @@ export class ProductCardMainComponent {
     }
   }
 
-  productInWishlist(){
+  // Check if item in wishlist for handling card's favorite icon
+  productInWishlist() {
     this.productItem.isProductWishlisted =
       this.wishlist.filter((item) => {
         return item.id === this.productItem.id;
       }).length > 0;
   }
-  productInCart(){
+
+  // Check if item in cart for handling card's cart button
+  productInCart() {
     this.productItem.isProductInCart =
-    this.cart.filter((item) => {
-      return item.id === this.productItem.id;
-    }).length > 0
+      this.cart.filter((item) => {
+        return item.id === this.productItem.id;
+      }).length > 0;
   }
-
-
 }

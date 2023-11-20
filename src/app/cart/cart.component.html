@@ -10,9 +10,9 @@
             <a routerLink="/" class="bg-primary-300 hover:bg-primary text-primary-accent hover:text-foreGround py-1 px-2 rounded text-lg">تصفح الآن</a>
         </button>
     </div>
-    <div  *ngIf="cart.length > 0" class="flex flex-col p-6">
-        <ul class="flex flex-col divide-y divide-primary-accent my-8">
-            <li class="flex mb-2" *ngFor="let item of cart">
+    <div  *ngIf="cart.length > 0" class="flex flex-col p-6 pt-0">
+        <ul class="flex flex-col divide-y divide-primary-accent mb-4">
+            <li class="flex py-2" *ngFor="let item of cart">
                 <div class="flex w-full flex-col sm:flex-row">
                     <img class="flex-shrink-0 object-contain w-20 h-20 rounded outline-none sm:w-32 sm:h-32" [src]="'../../../assets/images/'+ item.thumbnail" alt="Polaroid camera">
                     <div class="flex flex-col justify-between w-full ps-4 pb-4">

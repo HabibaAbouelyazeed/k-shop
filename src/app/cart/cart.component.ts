@@ -19,7 +19,8 @@ export class CartComponent {
   ];
   
   constructor(private cartService : CartService, private wishlistService: WishlistService){}
-  
+
+  // Subscribe to cart and wishlist services
   ngOnInit(){
     this.cartService.getCart().subscribe(
       (data) => (this.cart = data),
@@ -33,12 +34,14 @@ export class CartComponent {
     );
   }
 
+  // Handle removing item from cart
   removeFromCart(id:number){
     this.cart = this.cart.filter((item) => (item.id != id))
     this.cartService.setCart(this.cart);
     this.calcTotalPrice();
   }
 
+  // Calculate total price for items in cart
   calcTotalPrice(){
     let totalTemp = 0;
     this.cart.forEach(item => {
@@ -47,6 +50,7 @@ export class CartComponent {
     this.totalPrice = totalTemp;
   }
 
+  // Handle adding or removing item from wishlist
   toggleWishlist(product: Product) {
     product.isProductWishlisted = this.productInWishlist(product);
 
@@ -63,6 +67,7 @@ export class CartComponent {
     this.wishlistService.setWishlist(this.wishlist);
   }
 
+  // Check if item in wishlist for handling card's favorite icon
   productInWishlist(product: Product){
     return this.wishlist.filter((item) => {
         return item.id === product.id;

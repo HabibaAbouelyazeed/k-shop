@@ -7,6 +7,7 @@ import { Product } from 'src/app/shared/interface/product';
   styleUrls: ['./latest-products-list.component.css']
 })
 export class LatestProductsListComponent {
+  // Array of products
   products: Array<Product> = [
     {
       id: 5,

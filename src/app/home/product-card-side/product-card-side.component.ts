@@ -19,6 +19,7 @@ export class ProductCardSideComponent {
 
   constructor(private wishlistService: WishlistService, private cartService: CartService){}
 
+  // Subscribe to cart and wishlist services
   ngOnInit() {
     this.wishlistService.getWishlist().subscribe(
       (data) => (this.wishlist = data),
@@ -34,6 +35,7 @@ export class ProductCardSideComponent {
     this.productInCart();
   }
 
+  // Handle adding or removing item from wishlist
   toggleWishlist() {
     this.productInWishlist();
 
@@ -50,6 +52,7 @@ export class ProductCardSideComponent {
     this.wishlistService.setWishlist(this.wishlist);
   }
 
+   // Handle adding item to cart
   AddToCart() {
     this.productInCart()
     if (!this.productItem.isProductInCart) {
@@ -59,12 +62,15 @@ export class ProductCardSideComponent {
     }
   }
 
+  // Check if item in wishlist for handling card's favorite icon
   productInWishlist(){
     this.productItem.isProductWishlisted =
       this.wishlist.filter((item) => {
         return item.id === this.productItem.id;
       }).length > 0;
   }
+  
+  // Check if item in cart for handling card's cart button
   productInCart(){
     this.productItem.isProductInCart =
     this.cart.filter((item) => {

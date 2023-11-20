@@ -23,8 +23,8 @@
         <h5 class="mt-4 text-primary-accent font-bold mt-auto">{{productItem.price}} ج.م</h5>
 
         <div class="flex items-baseline justify-between">
-            <button (click)="AddToCart()" [attr.disabled]="productItem.isProductInCart? '': null" class="mt-4">
-                <img src="assets/icons/add_shopping_cart-black-18dp-1.svg">
+            <button (click)="AddToCart()" [attr.disabled]="productItem.isProductInCart? '': null" class="mt-4" [ngClass]="{'bg-starOff rounded': productItem.isProductInCart}">
+                <img [src]="!productItem.isProductInCart? 'assets/icons/add_shopping_cart-black-18dp-1.svg': 'assets/icons/add_shopping_cart-white-18dp.svg'">
             </button>
             <div class="flex gap-2">
                 <button (click)="toggleWishlist()">

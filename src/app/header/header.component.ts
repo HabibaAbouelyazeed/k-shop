@@ -12,6 +12,7 @@ export class HeaderComponent {
 
   constructor(private cartService: CartService) {}
 
+  // Subscribe to cart service
   ngOnInit() {
     this.cartService.getCart().subscribe(
       (data) => (this.cart = data),
